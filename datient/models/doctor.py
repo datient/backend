@@ -2,9 +2,18 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 from datient.managers import DoctorManager
 
+HIERARCHIES = (
+    (0, 'Jefe del servicio médico'),
+    (1, 'Médico del servicio de clínica médica'),
+    (2, 'Médico encargado del internado'),
+)
+
 class Doctor(AbstractBaseUser):
     email = models.EmailField(unique=True)
-    is_admin = models.BooleanField(default=False)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=30, blank=True)
+    hierarchy = models.PositiveSmallIntegerField(choices=HIERARCHIES, default=1)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     objects = DoctorManager()
 
@@ -23,6 +32,5 @@ class Doctor(AbstractBaseUser):
 
     @property
     def is_staff(self):
-        "Is the user a member of staff?"
-        # Simplest possible answer: All admins are staff
-        return self.is_admin
+        if self.hierarchy == 0:
+            return True

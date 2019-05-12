@@ -15,6 +15,6 @@ class DoctorManager(BaseUserManager):
 
     def create_superuser(self, email, password):
         user = self.create_user(email, password)
-        user.is_admin = True
+        user.hierarchy = 0
         user.save()
         return user
