@@ -8,5 +8,6 @@ router.register(r'doctor', DoctorViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('token/', obtain_jwt_token),
 ]
