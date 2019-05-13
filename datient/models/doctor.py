@@ -29,7 +29,6 @@ class Doctor(AbstractBaseUser):
         # Simplest possible answer: Yes, always
         return True
 
-
     @property
     def is_staff(self):
         if self.hierarchy == 0:
