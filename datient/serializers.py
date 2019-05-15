@@ -1,4 +1,5 @@
 from datient.models.doctor import Doctor
+from datient.models.patient import Patient
 from rest_framework import serializers
 
 class DoctorSerializer(serializers.ModelSerializer):
@@ -17,6 +18,11 @@ class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = ('id', 'email', 'password', 'hierarchy', 'first_name', 'last_name', 'created_at')
+
+class PatientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Patient
+        fields = '__all__'
 
 def jwt_response_payload_handler(token, user, request):
     return {
