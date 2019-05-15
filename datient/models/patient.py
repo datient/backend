@@ -1,7 +1,7 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
-SEXES = (
+GENDERS = (
     (0, 'Masculino'),
     (1, 'Femenino'),
 )
@@ -16,7 +16,7 @@ class Patient(models.Model):
     first_name = models.CharField(max_length=40, blank=True)
     last_name = models.CharField(max_length=40, blank=True)
     history_number = models.PositiveIntegerField(blank=True, null=True)
-    sex = models.PositiveSmallIntegerField(choices=SEXES, validators=[MaxValueValidator(1)])
+    gender = models.PositiveSmallIntegerField(choices=GENDERS, validators=[MaxValueValidator(1)])
     income_diagnosis = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
