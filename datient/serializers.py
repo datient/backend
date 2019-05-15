@@ -1,5 +1,7 @@
+from datetime import date
 from datient.models.doctor import Doctor
 from datient.models.patient import Patient
+import math
 from rest_framework import serializers
 
 class DoctorSerializer(serializers.ModelSerializer):
@@ -20,9 +22,15 @@ class DoctorSerializer(serializers.ModelSerializer):
         fields = ('id', 'email', 'password', 'hierarchy', 'first_name', 'last_name', 'created_at')
 
 class PatientSerializer(serializers.ModelSerializer):
+    age = serializers.SerializerMethodField()
+
     class Meta:
         model = Patient
         fields = '__all__'
+
+    def get_age(self, obj):
+        days = (date.today() - obj.birth_date).days
+        return math.floor(days / 365.25)
 
 def jwt_response_payload_handler(token, user, request):
     return {
