@@ -15,6 +15,7 @@ class Patient(models.Model):
     )
     first_name = models.CharField(max_length=40, blank=True)
     last_name = models.CharField(max_length=40, blank=True)
+    birth_date = models.DateField()
     history_number = models.PositiveIntegerField(blank=True, null=True)
     gender = models.PositiveSmallIntegerField(choices=GENDERS, validators=[MaxValueValidator(1)])
     income_diagnosis = models.TextField(blank=True)
