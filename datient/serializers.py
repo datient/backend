@@ -17,3 +17,9 @@ class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = ('id', 'email', 'password', 'hierarchy', 'first_name', 'last_name', 'created_at')
+
+def jwt_response_payload_handler(token, user, request):
+    return {
+        'token': token,
+        'user': DoctorSerializer(user, context={'request': request}).data
+    }

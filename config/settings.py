@@ -136,4 +136,8 @@ REST_FRAMEWORK = {
     ),
 }
 
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'datient.serializers.jwt_response_payload_handler'
+}
+
 CORS_ORIGIN_ALLOW_ALL = True
