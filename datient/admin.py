@@ -9,7 +9,13 @@ def full_name(obj):
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ('email', full_name, 'hierarchy')
 
+class BedInLine(admin.TabularInline):
+    model = Bed
+
+class RoomAdmin(admin.ModelAdmin):
+    inlines = [BedInLine]
+    ordering = ('pk',)
+
 admin.site.register(Doctor, DoctorAdmin)
 admin.site.register(Patient)
-admin.site.register(Bed)
-admin.site.register(Room)
+admin.site.register(Room, RoomAdmin)
