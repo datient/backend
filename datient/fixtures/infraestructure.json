@@ -1,0 +1,345 @@
+[
+  {
+    "model": "datient.room",
+    "pk": 1,
+    "fields": {
+      "name": "Sala 1"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 2,
+    "fields": {
+      "name": "Sala 2"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 3,
+    "fields": {
+      "name": "Sala 3"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 4,
+    "fields": {
+      "name": "Sala 4"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 5,
+    "fields": {
+      "name": "Sala 5"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 6,
+    "fields": {
+      "name": "Sala 6"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 7,
+    "fields": {
+      "name": "Sala 7"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 8,
+    "fields": {
+      "name": "Sala 8"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 9,
+    "fields": {
+      "name": "Sala 9"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 10,
+    "fields": {
+      "name": "Sala 10"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 11,
+    "fields": {
+      "name": "Sala 11"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 12,
+    "fields": {
+      "name": "Sala 12"
+    }
+  },
+  {
+    "model": "datient.room",
+    "pk": 13,
+    "fields": {
+      "name": "Sala 13"
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 1,
+    "fields": {
+      "name": "Cama 1",
+      "patient": null,
+      "room": 1
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 2,
+    "fields": {
+      "name": "Cama 2",
+      "patient": null,
+      "room": 1
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 3,
+    "fields": {
+      "name": "Cama 3",
+      "patient": null,
+      "room": 2
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 4,
+    "fields": {
+      "name": "Cama 4",
+      "patient": null,
+      "room": 2
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 5,
+    "fields": {
+      "name": "Cama 5",
+      "patient": null,
+      "room": 3
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 6,
+    "fields": {
+      "name": "Cama 6",
+      "patient": null,
+      "room": 3
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 7,
+    "fields": {
+      "name": "Cama 7",
+      "patient": null,
+      "room": 4
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 8,
+    "fields": {
+      "name": "Cama 8",
+      "patient": null,
+      "room": 4
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 9,
+    "fields": {
+      "name": "Cama 9",
+      "patient": null,
+      "room": 5
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 10,
+    "fields": {
+      "name": "Cama 10",
+      "patient": null,
+      "room": 5
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 11,
+    "fields": {
+      "name": "Cama 11",
+      "patient": null,
+      "room": 6
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 12,
+    "fields": {
+      "name": "Cama 12",
+      "patient": null,
+      "room": 6
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 13,
+    "fields": {
+      "name": "Cama 13",
+      "patient": null,
+      "room": 7
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 14,
+    "fields": {
+      "name": "Cama 14",
+      "patient": null,
+      "room": 7
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 15,
+    "fields": {
+      "name": "Cama 15",
+      "patient": null,
+      "room": 8
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 16,
+    "fields": {
+      "name": "Cama 16",
+      "patient": null,
+      "room": 8
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 17,
+    "fields": {
+      "name": "Cama 17",
+      "patient": null,
+      "room": 9
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 18,
+    "fields": {
+      "name": "Cama 18",
+      "patient": null,
+      "room": 9
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 19,
+    "fields": {
+      "name": "Cama 19",
+      "patient": null,
+      "room": 10
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 20,
+    "fields": {
+      "name": "Cama 20",
+      "patient": null,
+      "room": 10
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 21,
+    "fields": {
+      "name": "Cama 21",
+      "patient": null,
+      "room": 10
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 22,
+    "fields": {
+      "name": "Cama 22",
+      "patient": null,
+      "room": 11
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 23,
+    "fields": {
+      "name": "Cama 23",
+      "patient": null,
+      "room": 11
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 24,
+    "fields": {
+      "name": "Cama 24",
+      "patient": null,
+      "room": 11
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 25,
+    "fields": {
+      "name": "Cama 25",
+      "patient": null,
+      "room": 12
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 26,
+    "fields": {
+      "name": "Cama 26",
+      "patient": null,
+      "room": 12
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 27,
+    "fields": {
+      "name": "Cama 27",
+      "patient": null,
+      "room": 13
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 28,
+    "fields": {
+      "name": "Cama 28",
+      "patient": null,
+      "room": 13
+    }
+  }
+]
