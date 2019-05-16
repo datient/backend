@@ -1,6 +1,7 @@
 from django.contrib import admin
 from datient.models.doctor import Doctor
 from datient.models.patient import Patient
+from datient.models.infraestructure import Bed, Room
 
 def full_name(obj):
     return f'{obj.first_name} {obj.last_name}'
@@ -10,3 +11,5 @@ class DoctorAdmin(admin.ModelAdmin):
 
 admin.site.register(Doctor, DoctorAdmin)
 admin.site.register(Patient)
+admin.site.register(Bed)
+admin.site.register(Room)
