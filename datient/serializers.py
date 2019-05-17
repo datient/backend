@@ -20,7 +20,7 @@ class DoctorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Doctor
-        fields = ('id', 'email', 'password', 'hierarchy', 'first_name', 'last_name', 'created_at')
+        fields = ('id', 'email', 'hierarchy', 'first_name', 'last_name', 'created_at')
 
 class PatientSerializer(serializers.ModelSerializer):
     age = serializers.SerializerMethodField()
