@@ -1,4 +1,4 @@
-from datient.views import DoctorViewSet, PatientViewSet, RoomViewSet
+from datient.views import DoctorViewSet, PatientViewSet, BedViewSet, RoomViewSet
 from django.urls import include, path
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
@@ -6,6 +6,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 router = routers.DefaultRouter()
 router.register(r'doctor', DoctorViewSet)
 router.register(r'patient', PatientViewSet)
+router.register(r'bed', BedViewSet)
 router.register(r'room', RoomViewSet)
 
 urlpatterns = [

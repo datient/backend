@@ -34,11 +34,9 @@ class PatientSerializer(serializers.ModelSerializer):
         return math.floor(days / 365.25)
 
 class BedSerializer(serializers.ModelSerializer):
-    paciente = PatientSerializer(read_only=True, source='patient')
-
     class Meta:
         model = Bed
-        fields = ('id', 'name', 'paciente')
+        fields = ('id', 'name', 'room', 'patient')
 
 class RoomSerializer(serializers.ModelSerializer):
     beds = BedSerializer(many=True, read_only=True, source='bed_set')
