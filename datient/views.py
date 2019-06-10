@@ -17,6 +17,6 @@ class BedViewSet(viewsets.ModelViewSet):
     queryset = Bed.objects.all()
     serializer_class = BedSerializer
 
-class RoomViewSet(viewsets.ModelViewSet):
+class RoomViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
