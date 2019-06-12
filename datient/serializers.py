@@ -1,5 +1,6 @@
 from datetime import date
 from datient.models.doctor import Doctor
+from datient.models.hospital import Hospitalization
 from datient.models.infraestructure import Bed, Room
 from datient.models.patient import Patient
 import math
@@ -21,6 +22,11 @@ class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = ('id', 'email', 'hierarchy', 'first_name', 'last_name', 'created_at')
+
+class HospitalizationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Hospitalization
+        fields = '__all__'
 
 class PatientSerializer(serializers.ModelSerializer):
     age = serializers.SerializerMethodField()
