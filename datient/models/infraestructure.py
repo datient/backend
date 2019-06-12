@@ -9,7 +9,6 @@ class Room(models.Model):
 
 class Bed(models.Model):
     name = models.CharField(max_length=7)
-    patient = models.OneToOneField(Patient, on_delete=models.CASCADE, blank=True, null=True)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self):
