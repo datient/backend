@@ -1,3 +1,4 @@
 from .doctor import Doctor
-from .patient import Patient
+from .hospital import Hospitalization
 from .infraestructure import Bed, Room
+from .patient import Patient
