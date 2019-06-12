@@ -17,7 +17,10 @@ class RoomAdmin(admin.ModelAdmin):
     inlines = [BedInLine]
     ordering = ('pk',)
 
+class HospitalizationAdmin(admin.ModelAdmin):
+    list_display = ('doctor', 'patient', 'bed', 'done_at')
+
 admin.site.register(Doctor, DoctorAdmin)
-admin.site.register(Hospitalization)
+admin.site.register(Hospitalization, HospitalizationAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Patient)
