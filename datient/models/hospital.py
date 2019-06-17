@@ -1,7 +1,7 @@
 from django.db import models
 from datient.models.doctor import Doctor
 from datient.models.infraestructure import Bed
-from datient.models.patient import Patient
+from datient.models.patient import Patient, Progress
 
 class Hospitalization(models.Model):
     entry_at = models.DateTimeField(blank=True, null=True)
@@ -10,6 +10,7 @@ class Hospitalization(models.Model):
     bed = models.ForeignKey(Bed, related_name='hospitalizations', on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    progress = models.OneToOneField(Progress, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.doctor}: {self.patient} - {self.done_at}'

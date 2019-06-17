@@ -24,3 +24,20 @@ class Patient(models.Model):
 
     def __str__(self):
         return f'{self.dni}'
+
+STATUS = (
+    (0, 'Bien'),
+    (1, 'Precaucion'),
+    (2, 'Peligro'),
+)
+
+class Progress(models.Model):
+    diagnosis = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    status = models.PositiveSmallIntegerField(choices=STATUS)
+
+    def __str__(self):
+        return f'{self.id}'
+
+    class Meta:
+        verbose_name_plural = "Progress"
