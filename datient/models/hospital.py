@@ -7,7 +7,7 @@ class Hospitalization(models.Model):
     entry_at = models.DateTimeField(blank=True, null=True)
     left_at = models.DateTimeField(blank=True, null=True)
     done_at = models.DateTimeField(auto_now=True)
-    bed = models.ForeignKey(Bed, on_delete=models.CASCADE)
+    bed = models.ForeignKey(Bed, related_name='hospitalizations', on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
