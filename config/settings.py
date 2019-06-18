@@ -143,6 +143,9 @@ JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'datient.serializers.jwt_response_payload_handler'
 }
 
+if DEBUG:
+    JWT_AUTH.update({'JWT_VERIFY_EXPIRATION': False}),
+
 REST_REGISTRATION = {
     'REGISTER_VERIFICATION_ENABLED': False,
     'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
