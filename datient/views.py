@@ -5,6 +5,7 @@ from datient.models.patient import Patient
 from datient.serializers import *
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework_jwt.views import JSONWebTokenAPIView
 
 class DoctorViewSet(viewsets.ModelViewSet):
     queryset = Doctor.objects.all()
@@ -25,3 +26,8 @@ class BedViewSet(viewsets.ModelViewSet):
 class RoomViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
+
+class ObtainJSONWebToken(JSONWebTokenAPIView):
+    serializer_class = JSONWebTokenSerializer
+
+obtain_jwt_token = ObtainJSONWebToken.as_view()
