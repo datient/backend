@@ -135,7 +135,7 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'datient.permissions.BossPermission',
+        'datient.permissions.APIPermission',
     ),
 }
 
