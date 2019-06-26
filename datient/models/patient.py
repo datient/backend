@@ -31,6 +31,14 @@ STATUS = (
     (2, 'Peligro'),
 )
 
+class ComplementaryStudy(models.Model):
+    image = models.ImageField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='studies')
+
+    class Meta:
+        verbose_name_plural = 'Complementary Studies'
+
 class Progress(models.Model):
     diagnosis = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)

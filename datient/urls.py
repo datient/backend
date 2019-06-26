@@ -1,5 +1,7 @@
 from datient.views import *
 from datient.views import obtain_jwt_token
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import include, path
 from rest_framework import routers
 
@@ -15,4 +17,4 @@ urlpatterns = [
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('token/', obtain_jwt_token),
     path('accounts/', include('rest_registration.api.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
