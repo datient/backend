@@ -2,7 +2,7 @@ from datetime import date
 from datient.models.doctor import Doctor
 from datient.models.hospital import Hospitalization
 from datient.models.infraestructure import Bed, Room
-from datient.models.patient import Patient, Progress
+from datient.models.patient import Patient, ComplementaryStudy, Progress
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework_jwt.serializers import JSONWebTokenSerializer
@@ -43,8 +43,14 @@ class HospitalizationSerializer(serializers.ModelSerializer):
         model = Hospitalization
         fields = ('id', 'entry_at', 'left_at', 'done_at', 'bed', 'doctor', 'patient', 'progress')
 
+class ComplementaryStudySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ComplementaryStudy
+        fields = ('image', 'created_at')
+
 class PatientSerializer(serializers.ModelSerializer):
     age = serializers.SerializerMethodField()
+    studies = ComplementaryStudySerializer(many=True, read_only=True)
 
     class Meta:
         model = Patient

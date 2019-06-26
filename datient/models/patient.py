@@ -36,6 +36,9 @@ class ComplementaryStudy(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='studies')
 
+    def __str__(self):
+        return f'{self.patient}: {self.image}'
+
     class Meta:
         verbose_name_plural = 'Complementary Studies'
 
