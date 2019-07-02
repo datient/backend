@@ -8,7 +8,7 @@ class Room(models.Model):
         return f'{self.name}'
 
 class Bed(models.Model):
-    name = models.CharField(max_length=7)
+    name = models.CharField(max_length=12)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self):

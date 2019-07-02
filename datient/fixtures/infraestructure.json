@@ -230,7 +230,7 @@
     "model": "datient.bed",
     "pk": 18,
     "fields": {
-      "name": "Cama 18",
+      "name": "Cama 17 bis",
       "room": 9
     }
   },
@@ -238,15 +238,15 @@
     "model": "datient.bed",
     "pk": 19,
     "fields": {
-      "name": "Cama 19",
-      "room": 10
+      "name": "Cama 18",
+      "room": 9
     }
   },
   {
     "model": "datient.bed",
     "pk": 20,
     "fields": {
-      "name": "Cama 20",
+      "name": "Cama 19",
       "room": 10
     }
   },
@@ -254,7 +254,7 @@
     "model": "datient.bed",
     "pk": 21,
     "fields": {
-      "name": "Cama 21",
+      "name": "Cama 20",
       "room": 10
     }
   },
@@ -262,15 +262,15 @@
     "model": "datient.bed",
     "pk": 22,
     "fields": {
-      "name": "Cama 22",
-      "room": 11
+      "name": "Cama 21",
+      "room": 10
     }
   },
   {
     "model": "datient.bed",
     "pk": 23,
     "fields": {
-      "name": "Cama 23",
+      "name": "Cama 22",
       "room": 11
     }
   },
@@ -278,7 +278,7 @@
     "model": "datient.bed",
     "pk": 24,
     "fields": {
-      "name": "Cama 24",
+      "name": "Cama 23",
       "room": 11
     }
   },
@@ -286,15 +286,15 @@
     "model": "datient.bed",
     "pk": 25,
     "fields": {
-      "name": "Cama 25",
-      "room": 12
+      "name": "Cama 24",
+      "room": 11
     }
   },
   {
     "model": "datient.bed",
     "pk": 26,
     "fields": {
-      "name": "Cama 26",
+      "name": "Cama 25",
       "room": 12
     }
   },
@@ -302,13 +302,21 @@
     "model": "datient.bed",
     "pk": 27,
     "fields": {
+      "name": "Cama 26",
+      "room": 12
+    }
+  },
+  {
+    "model": "datient.bed",
+    "pk": 28,
+    "fields": {
       "name": "Cama 27",
       "room": 13
     }
   },
   {
     "model": "datient.bed",
-    "pk": 28,
+    "pk": 29,
     "fields": {
       "name": "Cama 28",
       "room": 13
