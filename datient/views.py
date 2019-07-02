@@ -1,7 +1,7 @@
 from datient.models.doctor import Doctor
 from datient.models.hospital import Hospitalization
 from datient.models.infraestructure import Bed, Room
-from datient.models.patient import Patient
+from datient.models.patient import Patient, ComplementaryStudy
 from datient.serializers import *
 from django.shortcuts import render
 from rest_framework import viewsets
@@ -14,6 +14,10 @@ class DoctorViewSet(viewsets.ModelViewSet):
 class HospitalizationViewSet(viewsets.ModelViewSet):
     queryset = Hospitalization.objects.all()
     serializer_class = HospitalizationSerializer
+
+class ComplementaryStudyViewSet(viewsets.ModelViewSet):
+    queryset = ComplementaryStudy.objects.all()
+    serializer_class = ComplementaryStudySerializer
 
 class PatientViewSet(viewsets.ModelViewSet):
     queryset = Patient.objects.all()

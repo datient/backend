@@ -7,10 +7,11 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'doctor', DoctorViewSet)
-router.register(r'hospitalization', HospitalizationViewSet)
-router.register(r'patient', PatientViewSet)
 router.register(r'room', RoomViewSet)
 router.register(r'bed', BedViewSet)
+router.register(r'patient', PatientViewSet)
+router.register(r'hospitalization', HospitalizationViewSet)
+router.register(r'study', ComplementaryStudyViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),

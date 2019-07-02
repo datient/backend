@@ -46,7 +46,7 @@ class HospitalizationSerializer(serializers.ModelSerializer):
 class ComplementaryStudySerializer(serializers.ModelSerializer):
     class Meta:
         model = ComplementaryStudy
-        fields = ('image', 'created_at')
+        fields = '__all__'
 
 class PatientSerializer(serializers.ModelSerializer):
     age = serializers.SerializerMethodField()
