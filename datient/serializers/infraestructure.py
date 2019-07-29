@@ -10,7 +10,7 @@ class BedSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bed
-        fields = ('id', 'name', 'room', 'hospitalizations')
+        fields = ('id', 'name', 'room')
 
 
 class RoomSerializer(serializers.ModelSerializer):
