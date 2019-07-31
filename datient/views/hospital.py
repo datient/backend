@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 
 from datient.models import Hospitalization
@@ -18,8 +19,8 @@ class HospitalizationViewSet(viewsets.ModelViewSet):
             bed_hospitalization = bed_hospitalization.order_by('-done_at')[0]
             dni = bed_hospitalization.patient.dni
         except IndexError:
-            return Response({
-                    'status': 'No se han encontrado hospitalizaciones'
+            raise NotFound({
+                    'detail': 'No se han encontrado hospitalizaciones'
                 })
 
         dni_hospitalization = Hospitalization.objects.filter(patient__dni=dni)
@@ -29,4 +30,4 @@ class HospitalizationViewSet(viewsets.ModelViewSet):
             serializer = self.get_serializer(dni_hospitalization, many=False)
             return Response(serializer.data)
 
-        return Response({'status': 'No se han encontrado hospitalizaciones'})
+        raise NotFound({'detail': 'No se han encontrado hospitalizaciones'})
