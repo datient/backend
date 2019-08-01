@@ -6,11 +6,9 @@ from datient.models import Bed, Room
 
 class BedSerializer(serializers.ModelSerializer):
     
-    hospitalizations = HospitalizationSerializer(many=True, read_only=True)
-
     class Meta:
         model = Bed
-        fields = ('id', 'name', 'room', 'hospitalizations')
+        fields = ('id', 'name', 'room')
 
 
 class RoomSerializer(serializers.ModelSerializer):

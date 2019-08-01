@@ -9,6 +9,7 @@ class BedViewSet(viewsets.ModelViewSet):
     queryset = Bed.objects.all()
     serializer_class = BedSerializer
 
+
 class RoomViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Room.objects.all()
