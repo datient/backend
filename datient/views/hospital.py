@@ -26,8 +26,30 @@ class HospitalizationViewSet(viewsets.ModelViewSet):
         dni_hospitalization = Hospitalization.objects.filter(patient__dni=dni)
         dni_hospitalization = dni_hospitalization.order_by('-done_at')[0]
 
-        if (bed_hospitalization.id == dni_hospitalization.id):
+        if (bed_hospitalization.id == dni_hospitalization.id and
+            dni_hospitalization.left_at is None):
             serializer = self.get_serializer(dni_hospitalization, many=False)
+            return Response(serializer.data)
+
+        raise NotFound({'detail': 'No se han encontrado hospitalizaciones'})
+
+    @action(detail=True, methods=['get'])
+    def patient_filter(self, request, pk=None):
+        try:
+            dni_hospitalization = Hospitalization.objects.filter(patient__dni=pk)
+            dni_hospitalization = dni_hospitalization.order_by('-done_at')[0]
+            bedId = dni_hospitalization.bed.id
+        except IndexError:
+            raise NotFound({
+                    'detail': 'No se han encontrado hospitalizaciones'
+                })
+
+        bed_hospitalization = Hospitalization.objects.filter(bed__id=bedId)
+        bed_hospitalization = bed_hospitalization.order_by('-done_at')[0]
+
+        if (dni_hospitalization.id == bed_hospitalization.id and
+            bed_hospitalization is None):
+            serializer = self.get_serializer(bed_hospitalization, many=False)
             return Response(serializer.data)
 
         raise NotFound({'detail': 'No se han encontrado hospitalizaciones'})

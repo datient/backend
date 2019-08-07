@@ -30,5 +30,5 @@ class PatientSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_age(self, obj):
-        days = (date.today() - obj.birth_date).days
+        days = (date.today() - obj.birth_date).days + 1
         return math.floor(days / 365.25)
