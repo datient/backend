@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
+
 from datient.managers import DoctorManager
 
 HIERARCHIES = (
@@ -8,7 +9,9 @@ HIERARCHIES = (
     (2, 'Médico encargado del internado'),
 )
 
+
 class Doctor(AbstractBaseUser):
+
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)

@@ -5,7 +5,7 @@ from datient.models import Bed, Room
 
 
 class BedSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
         model = Bed
         fields = ('id', 'name', 'room')
