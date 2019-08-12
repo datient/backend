@@ -19,8 +19,11 @@ class Patient(models.Model):
     last_name = models.CharField(max_length=40, blank=True)
     birth_date = models.DateField()
     history_number = models.PositiveIntegerField(blank=True, null=True)
-    gender = models.PositiveSmallIntegerField(choices=GENDERS, validators=[MaxValueValidator(1)])
+    gender = models.PositiveSmallIntegerField(choices=GENDERS,
+                                              validators=[MaxValueValidator(1)])
     income_diagnosis = models.TextField(blank=True)
+    contact = models.CharField(max_length=16, blank=True, null=True)
+    contact2 = models.CharField(max_length=16, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -52,7 +55,8 @@ class ComplementaryStudy(models.Model):
 
     image = models.ImageField()
     created_at = models.DateTimeField(auto_now_add=True)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='studies')
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE,
+                                related_name='studies')
 
     class Meta:
         verbose_name_plural = 'Complementary Studies'
