@@ -48,7 +48,7 @@ class HospitalizationViewSet(viewsets.ModelViewSet):
         bed_hospitalization = bed_hospitalization.order_by('-done_at')[0]
 
         if (dni_hospitalization.id == bed_hospitalization.id and
-            bed_hospitalization is None):
+            bed_hospitalization.left_at is None):
             serializer = self.get_serializer(bed_hospitalization, many=False)
             return Response(serializer.data)
 
