@@ -65,6 +65,19 @@ class ComplementaryStudy(models.Model):
         return f'{self.patient}: {self.image}'
 
 
+class FuturePlan(models.Model):
+
+    title = models.CharField(max_length=60)
+    description = models.TextField(blank=True, null=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE,
+                                related_name='plans')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.id}: {self.title}'
+
+
 class Progress(models.Model):
 
     diagnosis = models.CharField(max_length=100)

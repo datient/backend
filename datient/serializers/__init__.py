@@ -1,5 +1,7 @@
 from .doctor import DoctorSerializer
-from .patient import (ComplementaryStudySerializer, PatientSerializer,
+from .patient import (ComplementaryStudySerializer,
+                      FuturePlanSerializer,
+                      PatientSerializer,
                       ProgressSerializer)
 from .hostpital import HospitalizationSerializer
 from .infraestructure import BedSerializer, RoomSerializer

@@ -1,13 +1,20 @@
 from rest_framework import viewsets
 
-from datient.models import ComplementaryStudy, Patient
-from datient.serializers import ComplementaryStudySerializer, PatientSerializer
+from datient.models import ComplementaryStudy, FuturePlan, Patient 
+from datient.serializers import (ComplementaryStudySerializer,
+                                 PatientSerializer, FuturePlanSerializer)
 
 
 class ComplementaryStudyViewSet(viewsets.ModelViewSet):
 
     queryset = ComplementaryStudy.objects.all()
     serializer_class = ComplementaryStudySerializer
+
+
+class FuturePlanViewSet(viewsets.ModelViewSet):
+
+    queryset = FuturePlan.objects.all()
+    serializer_class = FuturePlanSerializer
 
 
 class PatientViewSet(viewsets.ModelViewSet):
