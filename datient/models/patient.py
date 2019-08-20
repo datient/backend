@@ -83,9 +83,13 @@ class Progress(models.Model):
     diagnosis = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     status = models.PositiveSmallIntegerField(choices=STATUS)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE,
+                                related_name='progress')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = "Progress"
+        verbose_name_plural = 'Progress'
 
     def __str__(self):
         return f'{self.id}'

@@ -14,8 +14,6 @@ class Hospitalization(models.Model):
                             on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    progress = models.OneToOneField(Progress, blank=True, null=True,
-                                    on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.doctor}: {self.patient} - {self.done_at}'

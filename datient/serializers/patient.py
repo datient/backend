@@ -31,6 +31,7 @@ class PatientSerializer(serializers.ModelSerializer):
   
     age = serializers.SerializerMethodField()
     plans = FuturePlanSerializer(many=True, read_only=True)
+    progress = ProgressSerializer(many=True, read_only=True)
     studies = ComplementaryStudySerializer(many=True, read_only=True)
 
     class Meta:

@@ -1,8 +1,9 @@
 from rest_framework import viewsets
 
-from datient.models import ComplementaryStudy, FuturePlan, Patient 
+from datient.models import ComplementaryStudy, FuturePlan, Patient, Progress
 from datient.serializers import (ComplementaryStudySerializer,
-                                 PatientSerializer, FuturePlanSerializer)
+                                 PatientSerializer, ProgressSerializer,
+                                 FuturePlanSerializer)
 
 
 class ComplementaryStudyViewSet(viewsets.ModelViewSet):
@@ -30,3 +31,9 @@ class PatientViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(dni__regex=f'^{dni}')
 
         return queryset
+
+
+class ProgressViewSet(viewsets.ModelViewSet):
+
+    queryset = Progress.objects.all()
+    serializer_class = ProgressSerializer

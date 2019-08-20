@@ -3,7 +3,7 @@ from rest_framework import routers
 from datient.views import (BedViewSet, ComplementaryStudyViewSet,
                            DoctorViewSet, HospitalizationViewSet,
                            PatientViewSet, RoomViewSet,
-                           FuturePlanViewSet)
+                           FuturePlanViewSet, ProgressViewSet)
 
 router = routers.DefaultRouter()
 router.register(r'doctor', DoctorViewSet)
@@ -13,3 +13,4 @@ router.register(r'patient', PatientViewSet)
 router.register(r'hospitalization', HospitalizationViewSet)
 router.register(r'study', ComplementaryStudyViewSet)
 router.register(r'plans', FuturePlanViewSet)
+router.register(r'progress', ProgressViewSet)
