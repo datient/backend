@@ -31,7 +31,7 @@ class PatientSerializer(serializers.ModelSerializer):
   
     age = serializers.SerializerMethodField()
     plans = FuturePlanSerializer(many=True, read_only=True)
-    progress = ProgressSerializer(many=True, read_only=True)
+    progress = serializers.SerializerMethodField()
     studies = ComplementaryStudySerializer(many=True, read_only=True)
 
     class Meta:
@@ -41,3 +41,7 @@ class PatientSerializer(serializers.ModelSerializer):
     def get_age(self, obj):
         days = (date.today() - obj.birth_date).days + 1
         return math.floor(days / 365.25)
+
+    def get_progress(self, obj):
+        progress = obj.progress.all().order_by('-created_at')
+        return ProgressSerializer(progress, many=True, read_only=True).data
