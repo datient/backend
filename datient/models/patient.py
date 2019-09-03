@@ -21,7 +21,6 @@ class Patient(models.Model):
     history_number = models.PositiveIntegerField(blank=True, null=True)
     gender = models.PositiveSmallIntegerField(choices=GENDERS,
                                               validators=[MaxValueValidator(1)])
-    income_diagnosis = models.TextField(blank=True)
     contact = models.CharField(max_length=16, blank=True, null=True)
     contact2 = models.CharField(max_length=16, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
