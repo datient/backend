@@ -19,3 +19,16 @@ class HospitalizationSerializer(serializers.ModelSerializer):
             return (now() - obj.entry_at).days
         
         return None
+
+    def create(self, validated_data):
+        dni = validated_data['patient']
+        hospitalization = Hospitalization.objects.filter(patient__dni=str(dni)).last()
+        if (hospitalization is None):
+            validated_data['entry_at'] = now()
+            return Hospitalization.objects.create(**validated_data)
+        if (hospitalization.left_at is not None):
+            validated_data['entry_at'] = now()
+            return Hospitalization.objects.create(**validated_data)
+        if (hospitalization.left_at is None):
+            validated_data['entry_at'] = hospitalization.entry_at
+            return Hospitalization.objects.create(**validated_data)
