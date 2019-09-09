@@ -83,6 +83,7 @@ class Progress(models.Model):
     description = models.TextField(blank=True, null=True)
     status = models.PositiveSmallIntegerField(choices=STATUS)
     has_left = models.BooleanField(default=False)
+    income = models.BooleanField(default=False)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE,
                                 related_name='progress')
     created_at = models.DateTimeField(auto_now_add=True)
