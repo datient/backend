@@ -1,3 +1,6 @@
+from datetime import date
+import math
+
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
@@ -39,6 +42,15 @@ class Patient(models.Model):
         
         super().save(*args, **kwargs)
     
+    @property
+    def get_gender(self):
+        return 'Masculino' if self.gender == 0 else 'Femenino'
+
+    @property
+    def get_age(self):
+        days = (date.today() - self.birth_date).days + 1
+        return math.floor(days / 365.25)
+
     def __str__(self):
         return f'{self.dni}'
 

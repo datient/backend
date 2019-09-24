@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Maven+Pro&display=swap" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'pdf/style.css' %}">
+  <title>Pdf</title>
+</head>
+<body>
+  <h1>{{ patient.first_name }}, {{ patient.last_name }}</h1>
+  <h2>Datos Personales</h2>
+  <p>DNI: {{ patient.dni }}</p>
+  <p>Fecha de nacimiento: {{ patient.birth_date }}</p>
+  <p>Edad: {{ patient.get_age }}</p>
+  <p>Numero de historia: {{ patient.history_number }}</p>
+  <p>Sexo: {{ patient.get_gender }}</p>
+  <p>N° de contacto: {{ patient.contact }}</p>
+  <p>N° de Contacto2: {{ patient.contact2 }}</p>
+  <h2>Evolución</h2>
+  <table>
+    <tr>
+      <th>Diagnóstico</th>
+      <th>Estado</th>
+      <th>Fecha de creación</th>
+      <th>Última actualización</th>
+    </tr>
+    {% for progress in evolution %}
+      <tr>
+        <td>{{ progress.diagnosis }}</td>
+        <td>{{ progress.get_status_display }}</td>
+        <td>{{ progress.created_at | date:"d/m/y"}}</td>
+        <td>{{ progress.updated_at | date:"d/m/y H:i" }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <h2>Estudios Complementarios</h2>
+  <h3>Imágenes</h3>
+  {% for study in studies %}
+    <div class="gfg">
+      <p>
+        <img src="{{ full_url }}{{ study.image }}">
+      </p>
+    </div>
+  {% endfor %}
+</body>
+</html>

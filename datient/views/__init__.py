@@ -4,3 +4,4 @@ from .infraestructure import BedViewSet, RoomViewSet
 from .jwt import obtain_jwt_token
 from .patient import (ComplementaryStudyViewSet, FuturePlanViewSet,
                        PatientViewSet, ProgressViewSet)
+from .pdf import generate_pdf
