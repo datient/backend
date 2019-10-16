@@ -1,0 +1,7 @@
+{% extends 'email/base.html' %}
+
+{% block content %}
+  <h1>{{ user.full_name }}</h1>
+  <h2>{{ user.email }}</h2>
+  {{ domain }}/{{ uid }}/{{ token }}
+{% endblock %}

@@ -21,10 +21,9 @@ class JSONWebTokenSerializer(JSONWebTokenSerializer):
 
         if all(credentials.values()):
             user = authenticate(**credentials)
-
-            if user:
+            if user is not None:
                 if not user.is_active:
-                    msg = 'User account is disabled.'
+                    msg = 'El usuario está deshabilitado.'
                     raise serializers.ValidationError(msg)
 
                 payload = jwt_payload_handler(user)
@@ -34,12 +33,12 @@ class JSONWebTokenSerializer(JSONWebTokenSerializer):
                     'user': user
                 }
             else:
-                msg = 'Email y/o contraseña incorrecta'
+                msg = 'Email y/o contraseña incorrecta.'
                 raise serializers.ValidationError(msg)
         else:
             msg = 'Must include "{username_field}" and "password".'
             msg = msg.format(username_field=self.username_field)
-            raise serializers.ValidationError(msg)    
+            raise serializers.ValidationError(msg)
 
 
 def jwt_response_payload_handler(token, user, request):

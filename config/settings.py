@@ -131,6 +131,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'datient.Doctor'
+AUTHENTICATION_BACKENDS = ['datient.backends.SettingsBackend']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -156,3 +157,9 @@ REST_REGISTRATION = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'teamdatient@gmail.com'
+EMAIL_HOST_PASSWORD = 'Pepe1234'
+EMAIL_USE_TLS = True
