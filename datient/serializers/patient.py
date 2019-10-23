@@ -39,8 +39,7 @@ class PatientSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_age(self, obj):
-        days = (date.today() - obj.birth_date).days + 1
-        return math.floor(days / 365.25)
+        return obj.age
 
     def get_progress(self, obj):
         progress = obj.progress.all().order_by('-created_at')

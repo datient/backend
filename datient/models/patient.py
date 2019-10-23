@@ -14,7 +14,7 @@ class Patient(models.Model):
 
     dni = models.PositiveIntegerField(primary_key=True, unique=True,
         validators=[
-            MinValueValidator(10000000),
+            MinValueValidator(1000000),
             MaxValueValidator(99999999)
         ]
     )
@@ -29,30 +29,28 @@ class Patient(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def save(self, *args, **kwargs):
-        names = []
-        for name in self.first_name.split():
-            names.append(name.capitalize())
-        self.first_name = ' '.join(names)
-        
-        last_names = []
-        for name in self.last_name.split():
-            last_names.append(name.capitalize())
-        self.last_name = ' '.join(last_names)
-        
-        super().save(*args, **kwargs)
-    
+    def __str__(self):
+        return f'{self.dni}'
+
+    @property
+    def age(self):
+        days = (date.today() - self.birth_date).days + 1
+        return math.floor(days / 365.25)
+
     @property
     def get_gender(self):
         return 'Masculino' if self.gender == 0 else 'Femenino'
 
     @property
-    def get_age(self):
-        days = (date.today() - self.birth_date).days + 1
-        return math.floor(days / 365.25)
+    def full_name(self):
+        return f'{self.last_name}, {self.first_name}'
 
-    def __str__(self):
-        return f'{self.dni}'
+    def save(self, *args, **kwargs):
+        names = [name.capitalize() for name in self.first_name.split()]
+        self.first_name = ' '.join(names)
+        last_names = [ln.capitalize() for ln in self.last_name.split()]
+        self.last_name = ' '.join(last_names)
+        super().save(*args, **kwargs)
 
 
 STATUS = (
