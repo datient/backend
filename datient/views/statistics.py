@@ -30,8 +30,9 @@ COLORS = [
 def generate_statistics(request):
     start_date = datetime.now() - timedelta(days=30)
     progress = Progress.objects.filter(created_at__range=(start_date, datetime.now()))
-    count_all = progress.count()
-    stats = progress.values('diagnosis').annotate(total=Count('diagnosis'))
+    stats = progress.values('diagnosis', 'has_left').annotate(total=Count('diagnosis'))
+    stats = stats.exclude(has_left=False)
+    count_all = stats.count()
     for index, i in enumerate(stats):
         percentage = i['total'] / count_all * 100
         i['percentage'] = round(percentage)
