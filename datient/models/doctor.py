@@ -29,6 +29,12 @@ class Doctor(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
 
+    def capitalize_names(self):
+        names = [name.capitalize() for name in self.first_name.split()]
+        self.first_name = ' '.join(names)
+        last_names = [ln.capitalize() for ln in self.last_name.split()]
+        self.last_name = ' '.join(last_names)
+
     @property
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
@@ -49,7 +55,8 @@ class Doctor(AbstractBaseUser):
             return True
 
     def save(self, *args, **kwargs):
-        super(Doctor, self).save(*args, **kwargs)
+        self.capitalize_names()
+        super().save(*args, **kwargs)
         if not self.is_active:
             subject = f'Activar cuenta: {self.email}'
             message = render_to_string('email/email.html', {
