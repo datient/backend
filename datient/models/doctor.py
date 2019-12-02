@@ -61,12 +61,15 @@ class Doctor(AbstractBaseUser):
             subject = f'Activar cuenta: {self.email}'
             message = render_to_string('email/email.html', {
                 'user': self,
-                'domain': 'http://localhost:8000/activate',
+                'domain': 'http://159.65.222.187:8000/activate',
                 'uid': urlsafe_base64_encode(force_bytes(self.pk)),
                 'token': account_activation_token.make_token(self),
             })
             from_email = settings.EMAIL_HOST
-            recipient_list = ['teamdatient@gmail.com',]
+            recipient_list = [
+                'teamdatient@gmail.com',
+                'caro.borgatello@gmail.com',
+            ]
             send_mail(
                 subject,
                 '',
